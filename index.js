@@ -1,9 +1,20 @@
 import express from 'express'
+import path from 'path'
+
+const __dirname = path.resolve();
 const PORT = process.env.PORT ?? 3001
 const app = express()
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello Express js!</h1>')
+    res.sendFile(path.resolve(__dirname, 'static', 'index.html'))
+})
+
+app.get('/features', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'static', 'features.html'))
+})
+
+app.get('/download', (req, res) => {
+    res.download(path.resolve(__dirname, 'static', 'index.html'))
 })
 
 app.listen(PORT, () => {
