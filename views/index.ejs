@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./partials/head');%>
+    <%- include('./partials/head'); %>
 </head>
 <body>
 <div class="container">
-    <%- include('./partials/navbar');%>
-    <%- include('./partials/welcome');%>
-    <a href="/download" title="">Download this page</a>
+    <%- include('./partials/navbar'); %>
+    <%- include('./partials/welcome'); %>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    API test
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Check API</h5>
+                    <p class="card-text">Test server API</p>
+                    <a href="/api/server" target="_blank" class="btn btn-primary">Open API</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    Download method
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Check download</h5>
+                    <p class="card-text">Download method</p>
+                    <a href="/download" target="_blank" class="btn btn-primary">Download this page</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<%- include('./partials/footer');%>
+<%- include('./partials/footer'); %>
 </body>
 </html>
