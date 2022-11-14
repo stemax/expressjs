@@ -29,3 +29,7 @@ Additional install nodemon for easy run server and wath updates
 
 (optional) For console log
 ```npm install colors```
+
+---
+Install [EJS](https://ejs.co/)
+```npm install ejs```
