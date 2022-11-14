@@ -26,3 +26,6 @@ Install interfaces/types for express js
 
 Additional install nodemon for easy run server and wath updates
 ```npm install -D nodemon```
+
+(optional) For console log
+```npm install colors```
