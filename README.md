@@ -19,3 +19,10 @@ First run:
 
 (optional Linux) with params:
 ```export PORT=3002 && node index```
+
+---
+Install interfaces/types for express js
+```npm install -D @types/express```
+
+Additional install nodemon for easy run server and wath updates
+```npm install -D nodemon```
