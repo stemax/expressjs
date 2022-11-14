@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./partials/head');%>
+    <%- include('./partials/head'); %>
 </head>
 <body>
 <div class="container">
-    <%- include('./partials/navbar');%>
-    <%- include('./partials/welcome');%>
+    <%- include('./partials/navbar'); %>
+    <%- include('./partials/welcome'); %>
+    <div class="card text-center">
+        <div class="card-header">
+            Test Express js project
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Created 14.11.2022</h5>
+            <p class="card-text">Author: stemax</p>
+            <a href="https://github.com/stemax" target="_blank" class="btn btn-primary">Go to GIT</a>
+        </div>
+        <div class="card-footer text-muted">
+            &copy; text
+        </div>
+    </div>
+    <%- include('./partials/footer'); %>
 </div>
-<%- include('./partials/footer');%>
 </body>
 </html>

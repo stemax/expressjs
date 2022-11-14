@@ -9,37 +9,45 @@
     <%- include('./partials/navbar'); %>
     <%- include('./partials/welcome'); %>
     <div id="app">
-        <div class="card text-bg-info mb-3" style="max-width: 18rem;">
-            <div class="card-header">Add new server</div>
+        <div class="card text-center text-bg-light mb-3">
+            <div class="card-header">
+                Add new todo
+            </div>
             <div class="card-body">
-                <form @submit.prevent="createServer">
+                <form @submit.prevent="createTodo">
                     <div class="mb-3">
-                        <input class="form-control" type="text" v-model="name">
+                        <input class="form-control" type="text" v-model="name" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add server</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </form>
+            </div>
+            <div class="card-footer text-muted">
+                Total todos: {{todos.length}}
             </div>
         </div>
 
-        <div class="spinner-border text-primary" role="status" v-if="servers.length === 0">
+        <div class="spinner-border text-primary" role="status" v-if="todos.length === 0">
             <span class="visually-hidden">Loading...</span>
         </div>
 
         <div v-else class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col" v-for="server in servers">
-                <div class="card mb-3" v-bind:class="(server.status==='working') ? 'text-bg-success' : 'text-bg-warning'" style="max-width: 18rem;">
-                    <div class="card-header"> {{ server.name }}</div>
+            <div class="col" v-for="todo in todos">
+                <div class="card mb-3"
+                     v-bind:class="(todo.status==='done') ? 'text-bg-success' : (todo.status==='created'  ? 'text-bg-info' : 'text-bg-secondary')"
+                     style="max-width: 18rem;">
+                    <div class="card-header"> {{ todo.name }}</div>
                     <div class="card-body">
-                        <h5 class="card-title"><strong>{{ server.id }}</strong></h5>
-                        <p class="card-text"><strong>{{ server.status }}</strong></p>
-                        <button type="button" class="btn btn-warning" @click="remove(server.id)">Remove</button>
+                        <h5 class="card-title"><strong>{{ todo.id }}</strong></h5>
+                        <p class="card-text"><strong>{{ todo.status }}</strong></p>
+                        <button type="button" class="btn btn-warning" @click="remove(todo.id)">Remove</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <%- include('./partials/footer'); %>
 </div>
-<%- include('./partials/footer'); %>
+
 <script src="/app.js"></script>
 </body>
 </html>
