@@ -13,6 +13,8 @@ app.set('view engine', 'ejs')
 
 //Middlewares
 app.use(express.static(path.resolve(__dirname, 'static')))
+app.use(express.json())
+app.use(express.urlencoded({extended: false}))
 app.use(requestTime)
 app.use(logger)
 app.use(serverRoutes)
@@ -28,10 +30,7 @@ app.get('/features', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', {title:'About', active:'about'})
 })
-// app.get('/', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'static', 'index.html'))
-// })
-//
+
 // app.get('/download', (req, res) => {
 //     // console.log(req.requestTime)
 //     res.download(path.resolve(__dirname, 'static', 'index.html'))

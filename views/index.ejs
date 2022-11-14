@@ -2,38 +2,44 @@
 <html lang="en">
 <head>
     <%- include('./partials/head'); %>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
 <div class="container">
     <%- include('./partials/navbar'); %>
     <%- include('./partials/welcome'); %>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header">
-                    API test
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Check API</h5>
-                    <p class="card-text">Test server API</p>
-                    <a href="/api/server" target="_blank" class="btn btn-primary">Open API</a>
-                </div>
+    <div id="app">
+        <div class="card text-bg-info mb-3" style="max-width: 18rem;">
+            <div class="card-header">Add new server</div>
+            <div class="card-body">
+                <form @submit.prevent="createServer">
+                    <div class="mb-3">
+                        <input class="form-control" type="text" v-model="name">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add server</button>
+                </form>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header">
-                    Download method
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Check download</h5>
-                    <p class="card-text">Download method</p>
-                    <a href="/download" target="_blank" class="btn btn-primary">Download this page</a>
+
+        <div class="spinner-border text-primary" role="status" v-if="servers.length === 0">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+
+        <div v-else class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" v-for="server in servers">
+                <div class="card mb-3" v-bind:class="(server.status==='working') ? 'text-bg-success' : 'text-bg-warning'" style="max-width: 18rem;">
+                    <div class="card-header"> {{ server.name }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>{{ server.id }}</strong></h5>
+                        <p class="card-text"><strong>{{ server.status }}</strong></p>
+                        <button type="button" class="btn btn-warning" @click="remove(server.id)">Remove</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <%- include('./partials/footer'); %>
+<script src="/app.js"></script>
 </body>
 </html>
