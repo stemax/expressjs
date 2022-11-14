@@ -1,0 +1,26 @@
+{
+  "name": "expressjs",
+  "version": "1.0.0",
+  "description": "[Express js](https://expressjs.com/)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stemax/expressjs.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "stemax",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stemax/expressjs/issues"
+  },
+  "homepage": "https://github.com/stemax/expressjs#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
