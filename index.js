@@ -4,7 +4,7 @@ import {requestTime, logger} from './middlewares.js'
 import serverRoutes from "./routes/todos.js";
 
 const __dirname = path.resolve();
-const PORT = process.env.PORT ?? 3001
+const PORT = process.env.PORT || 3002
 const app = express()
 
 app.set('view engine', 'ejs')
